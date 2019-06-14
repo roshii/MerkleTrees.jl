@@ -1,4 +1,4 @@
-module MerkleTree
+module MerkleTrees
 
 """
     merkle_parent(hash1::Vector{UInt8}, hash2::Vector{UInt8})

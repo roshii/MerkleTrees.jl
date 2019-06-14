@@ -1,5 +1,5 @@
-name = "MerkleTree"
-uuid = "c0492a26-8e7f-11e9-2ec1-e7e0f5aeefd3"
+name = "MerkleTrees"
+uuid = "06dfef30-8e85-11e9-0a8e-cb6ed32fdbef"
 license = "MIT"
 authors = ["Simon Castano <simon@brane.cc>"]
 version = "0.1.0"
