@@ -1,0 +1,14 @@
+name = "MerkleTree"
+uuid = "c0492a26-8e7f-11e9-2ec1-e7e0f5aeefd3"
+license = "MIT"
+authors = ["Simon Castano <simon@brane.cc>"]
+version = "0.1.0"
+
+[compat]
+julia = "1.0"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
