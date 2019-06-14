@@ -1,5 +1,8 @@
 module MerkleTrees
 
+include("hash.jl")
+
+
 """
     merkle_parent(hash1::Vector{UInt8}, hash2::Vector{UInt8})
     -> Vector{UInt8}

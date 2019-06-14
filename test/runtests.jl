@@ -1,11 +1,11 @@
-using Test, MerkleTree
+using Test, MerkleTrees
 
 @testset "Merkle" begin
     @testset "Parent" begin
         tx_hash0 = hex2bytes("c117ea8ec828342f4dfb0ad6bd140e03a50720ece40169ee38bdc15d9eb64cf5")
         tx_hash1 = hex2bytes("c131474164b412e3406696da1ee20ab0fc9bf41c8f05fa8ceea7a08d672d7cc5")
         want = hex2bytes("8b30c5ba100f6f2e5ad1e2a742e5020491240f8eb514fe97c713c31718ad7ecd")
-        @test MerkleTree.merkle_parent(tx_hash0, tx_hash1) == want
+        @test MerkleTrees.merkle_parent(tx_hash0, tx_hash1) == want
     end
     @testset "Parent Level" begin
         hex_hashes = [
@@ -29,7 +29,7 @@ using Test, MerkleTree
             "43e7274e77fbe8e5a42a8fb58f7decdb04d521f319f332d88e6b06f8e6c09e27",
             "1796cd3ca4fef00236e07b723d3ed88e1ac433acaaa21da64c4b33c946cf3d10"]
         want_tx_hashes = [hex2bytes(x) for x in want_hex_hashes]
-        @test MerkleTree.merkle_parent_level(tx_hashes) == want_tx_hashes
+        @test MerkleTrees.merkle_parent_level(tx_hashes) == want_tx_hashes
     end
     @testset "Root" begin
         hex_hashes = [
@@ -48,11 +48,11 @@ using Test, MerkleTree
         tx_hashes = [hex2bytes(x) for x in hex_hashes]
         want_hex_hash = "acbcab8bcc1af95d8d563b77d24c3d19b18f1486383d75a5085c4e86c86beed6"
         want_hash = hex2bytes(want_hex_hash)
-        @test MerkleTree.merkle_root(tx_hashes) == want_hash
+        @test MerkleTrees.merkle_root(tx_hashes) == want_hash
     end
     @testset "Tree" begin
         @testset "Init" begin
-            tree = MerkleTree.MerkleTree(9)
+            tree = MerkleTrees.MerkleTree(9)
             @test length(tree.nodes[1]) == 1
             @test length(tree.nodes[2]) == 2
             @test length(tree.nodes[3]) == 3
@@ -77,11 +77,11 @@ using Test, MerkleTree
                 "c9d52c5cb1e557b92c84c52e7c4bfbce859408bedffc8a5560fd6e35e10b8800",
                 "c555bc5fc3bc096df0a0c9532f07640bfb76bfe4fc1ace214b8b228a1297a4c2",
                 "f9dbfafc3af3400954975da24eb325e326960a25b87fffe23eef3e7ed2fb610e"]
-            tree = MerkleTree.MerkleTree(length(hex_hashes))
+            tree = MerkleTrees.MerkleTree(length(hex_hashes))
             hashes = [hex2bytes(h) for h in hex_hashes]
-            MerkleTree.populate!(tree, fill(true, 31), hashes)
+            MerkleTrees.populate!(tree, fill(true, 31), hashes)
             root = "597c4bafe3832b17cbbabe56f878f4fc2ad0f6a402cee7fa851a9cb205f87ed1"
-            @test bytes2hex(MerkleTree.root(tree)) == root
+            @test bytes2hex(MerkleTrees.root(tree)) == root
 
             hex_hashes = [
                 "42f6f52f17620653dcc909e58bb352e0bd4bd1381e2955d19c00959a22122b2e",
@@ -89,11 +89,11 @@ using Test, MerkleTree
                 "959428d7c48113cb9149d0566bde3d46e98cf028053c522b8fa8f735241aa953",
                 "a9f27b99d5d108dede755710d4a1ffa2c74af70b4ca71726fa57d68454e609a2",
                 "62af110031e29de1efcad103b3ad4bec7bdcf6cb9c9f4afdd586981795516577"]
-            tree = MerkleTree.MerkleTree(length(hex_hashes))
+            tree = MerkleTrees.MerkleTree(length(hex_hashes))
             hashes = [hex2bytes(h) for h in hex_hashes]
-            MerkleTree.populate!(tree, fill(true, 11), hashes)
+            MerkleTrees.populate!(tree, fill(true, 11), hashes)
             root = "a8e8bd023169b81bc56854137a135b97ef47a6a7237f4c6e037baed16285a5ab"
-            @test bytes2hex(MerkleTree.root(tree)) == root
+            @test bytes2hex(MerkleTrees.root(tree)) == root
         end
     end
 end

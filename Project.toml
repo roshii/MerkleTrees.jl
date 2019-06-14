@@ -4,6 +4,9 @@ license = "MIT"
 authors = ["Simon Castano <simon@brane.cc>"]
 version = "0.1.0"
 
+[deps]
+SHA = "ea8e919c-243c-51af-8825-aaa63cd721ce"
+
 [compat]
 julia = "1.0"
 
