@@ -1,7 +1,10 @@
 module MerkleTrees
 
-include("hash.jl")
+export MerkleTree,
+       merkle_parent, merkle_parent_level, merkle_root,
+       root, populate!
 
+include("hash.jl")
 
 """
     merkle_parent(hash1::Vector{UInt8}, hash2::Vector{UInt8})
@@ -60,6 +63,11 @@ mutable struct MerkleTree
     MerkleTree(total, max_depth, nodes, current_depth::Integer=1, current_index::Integer=1) = new(total, max_depth, nodes, current_depth, current_index)
 end
 
+"""
+    MerkleTree(x::Integer) -> MerkleTree
+
+Create a MerkleTree of `x` elements
+"""
 function MerkleTree(total::Integer)
     max_depth = 1 + ceil(Integer, log2(total))
     nodes = Vector{Union{Nothing, Vector{UInt8}}}[]

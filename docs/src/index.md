@@ -1,25 +1,16 @@
 # MerkleTrees.jl Documentation
 
-MerkleTree library for Julia
+MerkleTree implementation using double sha256 hash function.
 
 ## Functions
 
 ```@docs
-MerkleTree
-merkle_parent
-merkle_parent_level
-merkle_root
-up!
-left!
-right!
-root
-set_current_node!
-get_current_node
-get_left_node
-get_right_node
-is_leaf
-right_exists
-populate!
+MerkleTree(::Integer)
+merkle_parent(::Vector{UInt8}, ::Vector{UInt8})
+merkle_parent_level(hashes::Vector{Vector{UInt8}})
+merkle_root(hashes::Vector{Vector{UInt8}})
+root(tree::MerkleTree)
+populate!(tree::MerkleTree, flag_bits::Vector{Bool}, hashes::Vector{Vector{UInt8}})
 ```
 
 ## Buy me a cup of coffee
