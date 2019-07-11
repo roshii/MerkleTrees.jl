@@ -6,7 +6,7 @@ MerkleTree implementation using double sha256 hash function.
 
 ## Documentation
 
-https://braneproject.gitlab.io/merkletrees.jl/
+https://braneproject.gitlab.io/MerkleTrees.jl/
 
 ## Buy me a cup of coffee
 
